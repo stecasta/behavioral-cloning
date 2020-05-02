@@ -18,7 +18,7 @@ The goals / steps of this project are the following:
 
 [//]: # (Image References)
 
-[image1]: ./images/center_2020_05_02_08_31_14_710.png "Center driving"
+[image1]: ./images/center.jpg "Center driving"
 [image2]: ./images/flip.png "normal image"
 [image3]: ./images/flipped.png "flipped image"
 
