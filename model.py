@@ -6,7 +6,7 @@ from keras.models import Model
 from keras.models import Sequential
 from keras.layers import Flatten, Dense, Lambda, Convolution2D, MaxPooling2D, Cropping2D, Dropout, ELU
 import matplotlib.image as mpimg
-
+from sklearn.model_selection import train_test_split
 
 def GetData(data_dir):
     #This function takes the path of the data directory as
@@ -40,8 +40,7 @@ def GetData(data_dir):
 
 images, measurements = GetData('./data')
 
-X_train = np.array(images)
-Y_train = np.array(measurements)
+X_train, X_test, Y_train, Y_test = train_test_split(images, measurements, test_size=0.2)
 
 # Model definition (NVIDIA-like)
 model = Sequential()
@@ -64,3 +63,6 @@ model.compile(loss='mse', optimizer='adam')
 model.fit(X_train, Y_train, validation_split=0.2, shuffle=True, nb_epoch=1)
 model.save('model.h5')
 print("model saved")
+
+results = model.evaluate(X_test, Y_test, batch_size=128)
+print('test loss, test acc:', results)

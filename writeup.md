@@ -61,12 +61,11 @@ My model is inspired by the NVIDIA convolutional network. This model starts with
 
 The model is defined in model.py from line 47 to line 61.
 
-#### 2. Attempts to reduce overfitting in the model
+#### 2. Attempts to reduce overfitting in the model and train/valid/test split
 
 The model contains dropout layers in order to reduce overfitting as described above.
 
-The model was tested by running it through the simulator and ensuring that the vehicle could stay on the track.
-
+The dataset is divided in training and test data (line 43 of model.py), the test data is the 10% of the full dataset. Moreover I took 20% percent of the training data and used it for the validation set (line63 of model.py). After the model is trained I performed a test (lines 67 and 68) that showed that the model had learned well from the data. This was confirmed by the fact that the vehicle was actually able to drive around the circuit.
 #### 3. Model parameter tuning
 
 The model used an adam optimizer, so the learning rate was not tuned manually (model.py line 63).
